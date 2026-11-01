@@ -299,5 +299,6 @@ export const INSPIRATION_QUESTIONS: { id: string; category: InspirationCategoryI
 /** Deterministic pick for a given date key, offset by slot, across a category pool or the whole pool. */
 export function dailyPick<T>(pool: T[], dateKey: string, slot: number): T {
   const seed = dateKey.split("-").reduce((acc, part) => acc * 31 + Number(part), 7) + slot * 13;
-  return pool[Math.abs(seed) % pool.length];
+  const idx = Math.abs(seed) % pool.length;
+  return pool[idx] ?? pool[0]!;
 }

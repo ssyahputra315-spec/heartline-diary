@@ -20,7 +20,9 @@ export const CHECKUP_QUESTIONS: CheckupQuestionDef[] = [
 ];
 
 export const checkupScore = (answers: Record<string, number>): number => {
-  const values = CHECKUP_QUESTIONS.map((q) => answers[q.id]).filter((v) => typeof v === "number" && v >= 1 && v <= 5);
+  const values = CHECKUP_QUESTIONS.map((q) => answers[q.id]).filter(
+    (v): v is number => typeof v === "number" && v >= 1 && v <= 5,
+  );
   if (!values.length) return 0;
   return Math.round((values.reduce((a, b) => a + b, 0) / values.length) * 10) / 10; // 0–5, one decimal
 };

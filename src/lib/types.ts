@@ -33,7 +33,7 @@ export const MOODS: MoodDef[] = [
   { id: "confused", label: "Confused", positive: false },
 ];
 
-export const moodDef = (id: MoodId): MoodDef => MOODS.find((m) => m.id === id) ?? MOODS[0];
+export const moodDef = (id: MoodId): MoodDef => MOODS.find((m) => m.id === id) ?? MOODS[0]!;
 
 export type DiaryCategoryId =
   | "daily"
