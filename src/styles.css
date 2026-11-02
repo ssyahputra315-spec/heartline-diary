@@ -145,19 +145,19 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50;
   }
   .btn-primary {
-    @apply btn bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-50;
   }
   .btn-secondary {
-    @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/70;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-4 py-2.5 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/70 disabled:pointer-events-none disabled:opacity-50;
   }
   .btn-outline {
-    @apply btn border border-border bg-card text-foreground hover:bg-accent;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent disabled:pointer-events-none disabled:opacity-50;
   }
   .btn-ghost {
-    @apply btn text-muted-foreground hover:bg-accent hover:text-accent-foreground;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50;
   }
   .btn-destructive {
-    @apply btn bg-destructive text-destructive-foreground hover:bg-destructive/90;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-destructive px-4 py-2.5 text-sm font-medium text-destructive-foreground transition-colors hover:bg-destructive/90 disabled:pointer-events-none disabled:opacity-50;
   }
   .input-field {
     @apply w-full rounded-xl border border-input bg-card px-3.5 py-2.5 text-sm text-foreground outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring/50;

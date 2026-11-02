@@ -65,10 +65,10 @@ export function deletePhotos(ids: string[]): Promise<void> {
 }
 
 export function allPhotos(): Promise<[string, Blob][]> {
-  return withStore<[string, Blob][]>("readonly", (store) => store.getAllKeys() as IDBRequest<IDBValidKey[]>).then((keys) =>
+  return withStore<IDBValidKey[]>("readonly", (store) => store.getAllKeys()).then((keys) =>
     Promise.all(
-      (keys as string[]).map((id) =>
-        getPhotoBlob(id).then((blob) => [id, blob as Blob] as [string, Blob]),
+      keys.map((key) =>
+        getPhotoBlob(String(key)).then((blob) => [String(key), blob as Blob] as [string, Blob]),
       ),
     ),
   );
