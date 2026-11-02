@@ -1,3 +1,4 @@
+import { Link, useLocation } from "@tanstack/react-router";
 import { Images, LineChart, NotebookPen, Sparkles, User, Heart, type LucideIcon } from "lucide-react";
 
 const ITEMS: { to: "/" | "/diary" | "/insights" | "/memories" | "/inspiration" | "/profile"; label: string; icon: LucideIcon }[] = [
@@ -10,6 +11,8 @@ const ITEMS: { to: "/" | "/diary" | "/insights" | "/memories" | "/inspiration" |
 ];
 
 export function BottomNav() {
+  const pathname = useLocation({ select: (l) => l.pathname });
+
   return (
     <nav
       aria-label="Main navigation"
@@ -17,7 +20,7 @@ export function BottomNav() {
     >
       <div className="mx-auto flex w-full max-w-md items-stretch justify-around px-2 pb-[env(safe-area-inset-bottom)]">
         {ITEMS.map((item) => (
-          <NavLink key={item.to} to={item.to} label={item.label} Icon={item.icon} />
+          <NavLink key={item.to} to={item.to} label={item.label} Icon={item.icon} pathname={pathname} />
         ))}
       </div>
     </nav>
@@ -28,10 +31,12 @@ function NavLink({
   to,
   label,
   Icon,
+  pathname,
 }: {
   to: "/" | "/diary" | "/insights" | "/memories" | "/inspiration" | "/profile";
   label: string;
   Icon: LucideIcon;
+  pathname: string;
 }) {
   const active = to === "/" ? pathname === "/" : pathname.startsWith(to);
   return (

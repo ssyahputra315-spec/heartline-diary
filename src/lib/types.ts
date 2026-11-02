@@ -62,7 +62,7 @@ export const DIARY_CATEGORIES: DiaryCategoryDef[] = [
 ];
 
 export const diaryCategory = (id: DiaryCategoryId): DiaryCategoryDef =>
-  DIARY_CATEGORIES.find((c) => c.id === id) ?? DIARY_CATEGORIES[0];
+  DIARY_CATEGORIES.find((c) => c.id === id) ?? DIARY_CATEGORIES[0]!;
 
 export type MemoryKind = "first-meeting" | "first-date" | "anniversary" | "trip" | "milestone" | "custom";
 
@@ -81,7 +81,7 @@ export const MEMORY_KINDS: MemoryKindDef[] = [
 ];
 
 export const memoryKind = (id: MemoryKind): MemoryKindDef =>
-  MEMORY_KINDS.find((k) => k.id === id) ?? MEMORY_KINDS[5];
+  MEMORY_KINDS.find((k) => k.id === id) ?? MEMORY_KINDS[5]!;
 
 export type ThemeSetting = "light" | "dark" | "system";
 

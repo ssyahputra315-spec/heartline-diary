@@ -100,7 +100,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (!data) throw new Error("Nothing to export yet");
     const photos = await allPhotos();
     const payload: Record<string, unknown> = { ...data, app: "my-love-diary", exportedAt: new Date().toISOString() };
-    payload.photos = await Promise.all(
+    payload["photos"] = await Promise.all(
       photos.map(async ([id, blob]) => [id, await blobToBase64(blob)] as [string, string]),
     );
     return JSON.stringify(payload);
