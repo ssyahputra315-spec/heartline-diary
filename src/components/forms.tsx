@@ -1,12 +1,8 @@
 import { useState } from "react";
+import { DATE_IDEA_CATEGORIES } from "@/lib/content";
 import { todayStr } from "@/lib/dates";
-import {
-  DATE_IDEA_CATEGORIES,
-  type DateIdeaCategory,
-  type MemoryKind,
-  MEMORY_KINDS,
-} from "@/lib/types";
-import { memoryKind } from "@/lib/types";
+import type { DateIdeaCategory, MemoryKind, MoodId, CheckIn } from "@/lib/types";
+import { MEMORY_KINDS } from "@/lib/types";
 import { useApp, uid } from "@/store/app-store";
 
 import { Sheet } from "./Sheet";

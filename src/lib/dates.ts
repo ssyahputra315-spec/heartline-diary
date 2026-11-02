@@ -11,8 +11,11 @@ export function todayStr(): string {
 }
 
 export function parseDate(s: string): Date {
-  const [y, m, d] = s.split("-").map(Number);
-  return new Date(y, (m ?? 1) - 1, d ?? 1);
+  const parts = s.split("-").map(Number);
+  const y = parts[0] ?? 1970;
+  const m = parts[1] ?? 1;
+  const d = parts[2] ?? 1;
+  return new Date(y, m - 1, d);
 }
 
 export function isValidDateStr(s: string): boolean {
@@ -47,7 +50,7 @@ export function formatDate(s: string, style: "long" | "short" | "medium" = "medi
 }
 
 export function monthLabel(year: number, month: number): string {
-  return `${MONTHS[month]} ${year}`;
+  return `${MONTHS[month] ?? ""} ${year}`;
 }
 
 /** "2 years, 3 months" since `start` (or "" when not set). */
