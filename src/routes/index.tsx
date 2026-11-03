@@ -17,8 +17,8 @@ import { EmptyState } from "@/components/EmptyState";
 import { MoodRow } from "@/components/MoodPicker";
 import { CheckInSheet, GratitudeSheet } from "@/components/forms";
 import { dailyPick, INSPIRATION_MESSAGES } from "@/lib/inspiration";
-import { daysAway, durationText, greeting, relationshipDuration, todayStr } from "@/lib/dates";
-import { checkInStreak } from "@/lib/stats";
+import { durationText, greeting, relationshipDuration, todayStr } from "@/lib/dates";
+import { checkInStreak, daysAway } from "@/lib/stats";
 import { uid, useApp, useData } from "@/store/app-store";
 
 export const Route = createFileRoute("/")({
