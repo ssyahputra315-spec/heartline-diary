@@ -46,7 +46,7 @@ export function formatDate(s: string, style: "long" | "short" | "medium" = "medi
   const d = parseDate(s);
   if (style === "long") return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
   if (style === "short") return `${pad(d.getMonth() + 1)}/${pad(d.getDate())}`;
-  return `${MONTHS[d.getMonth()].slice(0, 3)} ${d.getDate()}, ${d.getFullYear()}`;
+  return `${MONTHS[d.getMonth()]!.slice(0, 3)} ${d.getDate()}, ${d.getFullYear()}`;
 }
 
 export function monthLabel(year: number, month: number): string {
