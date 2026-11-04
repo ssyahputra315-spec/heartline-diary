@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DiaryRouteImport } from './routes/diary'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as InspirationRouteImport } from './routes/inspiration'
+import { Route as MemoriesRouteImport } from './routes/memories'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as DiaryEntryIdRouteImport } from './routes/diary.$entryId'
 import { Route as DiaryNewRouteImport } from './routes/diary.new'
 
@@ -22,6 +26,26 @@ const IndexRoute = IndexRouteImport.update({
 const DiaryRoute = DiaryRouteImport.update({
   id: '/diary',
   path: '/diary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InspirationRoute = InspirationRouteImport.update({
+  id: '/inspiration',
+  path: '/inspiration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MemoriesRoute = MemoriesRouteImport.update({
+  id: '/memories',
+  path: '/memories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiaryEntryIdRoute = DiaryEntryIdRouteImport.update({
@@ -38,12 +62,20 @@ const DiaryNewRoute = DiaryNewRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/diary': typeof DiaryRouteWithChildren
+  '/insights': typeof InsightsRoute
+  '/inspiration': typeof InspirationRoute
+  '/memories': typeof MemoriesRoute
+  '/profile': typeof ProfileRoute
   '/diary/$entryId': typeof DiaryEntryIdRoute
   '/diary/new': typeof DiaryNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/diary': typeof DiaryRouteWithChildren
+  '/insights': typeof InsightsRoute
+  '/inspiration': typeof InspirationRoute
+  '/memories': typeof MemoriesRoute
+  '/profile': typeof ProfileRoute
   '/diary/$entryId': typeof DiaryEntryIdRoute
   '/diary/new': typeof DiaryNewRoute
 }
@@ -51,20 +83,53 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/diary': typeof DiaryRouteWithChildren
+  '/insights': typeof InsightsRoute
+  '/inspiration': typeof InspirationRoute
+  '/memories': typeof MemoriesRoute
+  '/profile': typeof ProfileRoute
   '/diary/$entryId': typeof DiaryEntryIdRoute
   '/diary/new': typeof DiaryNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diary' | '/diary/$entryId' | '/diary/new'
+  fullPaths:
+    | '/'
+    | '/diary'
+    | '/insights'
+    | '/inspiration'
+    | '/memories'
+    | '/profile'
+    | '/diary/$entryId'
+    | '/diary/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diary' | '/diary/$entryId' | '/diary/new'
-  id: '__root__' | '/' | '/diary' | '/diary/$entryId' | '/diary/new'
+  to:
+    | '/'
+    | '/diary'
+    | '/insights'
+    | '/inspiration'
+    | '/memories'
+    | '/profile'
+    | '/diary/$entryId'
+    | '/diary/new'
+  id:
+    | '__root__'
+    | '/'
+    | '/diary'
+    | '/insights'
+    | '/inspiration'
+    | '/memories'
+    | '/profile'
+    | '/diary/$entryId'
+    | '/diary/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DiaryRoute: typeof DiaryRouteWithChildren
+  InsightsRoute: typeof InsightsRoute
+  InspirationRoute: typeof InspirationRoute
+  MemoriesRoute: typeof MemoriesRoute
+  ProfileRoute: typeof ProfileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -81,6 +146,34 @@ declare module '@tanstack/react-router' {
       path: '/diary'
       fullPath: '/diary'
       preLoaderRoute: typeof DiaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inspiration': {
+      id: '/inspiration'
+      path: '/inspiration'
+      fullPath: '/inspiration'
+      preLoaderRoute: typeof InspirationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/memories': {
+      id: '/memories'
+      path: '/memories'
+      fullPath: '/memories'
+      preLoaderRoute: typeof MemoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diary/$entryId': {
@@ -115,6 +208,10 @@ const DiaryRouteWithChildren = DiaryRoute._addFileChildren(DiaryRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DiaryRoute: DiaryRouteWithChildren,
+  InsightsRoute: InsightsRoute,
+  InspirationRoute: InspirationRoute,
+  MemoriesRoute: MemoriesRoute,
+  ProfileRoute: ProfileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
