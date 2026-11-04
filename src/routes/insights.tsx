@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ClipboardHeart, Flame, NotebookPen, Sparkles } from "lucide-react";
+import { ClipboardCheck, Flame, NotebookPen, Sparkles } from "lucide-react";
 
 import { PageShell } from "@/components/PageShell";
 import { EmptyState } from "@/components/EmptyState";
