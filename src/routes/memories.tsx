@@ -7,7 +7,8 @@ import { EmptyState } from "@/components/EmptyState";
 import { ConfirmDialog } from "@/components/Sheet";
 import { PhotoImage } from "@/components/PhotoPicker";
 import { BucketSheet, ImportantDateSheet, LetterSheet, MemorySheet } from "@/components/forms";
-import { daysAway, formatDate, sameMonthDay, todayStr } from "@/lib/dates";
+import { daysAway } from "@/lib/stats";
+import { formatDate, sameMonthDay, todayStr } from "@/lib/dates";
 import { memoryKind } from "@/lib/types";
 import { useApp, useData } from "@/store/app-store";
 
