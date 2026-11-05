@@ -92,7 +92,7 @@ export function MemorySheet({
 }: {
   open: boolean;
   onClose: () => void;
-  editId?: string;
+  editId?: string | undefined;
 }) {
   const { data, update } = useApp();
   const existing = editId ? data?.memories.find((m) => m.id === editId) : undefined;
@@ -157,7 +157,7 @@ export function ImportantDateSheet({
 }: {
   open: boolean;
   onClose: () => void;
-  editId?: string;
+  editId?: string | undefined;
 }) {
   const { data, update } = useApp();
   const existing = editId ? data?.importantDates.find((i) => i.id === editId) : undefined;

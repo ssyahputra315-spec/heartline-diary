@@ -64,7 +64,7 @@ function Insights() {
       <div className="grid grid-cols-3 gap-2">
         <StatCard icon={Flame} label="Day streak" value={String(streak)} />
         <StatCard icon={NotebookPen} label="Entries · 30d" value={String(entries30)} />
-        <StatCard icon={ClipboardHeart} label="Checkups" value={String(data.checkups.length)} />
+        <StatCard icon={ClipboardCheck} label="Checkups" value={String(data.checkups.length)} />
       </div>
 
       {/* Weekly positivity chart */}
@@ -162,7 +162,7 @@ function Insights() {
         ) : (
           <div className="mt-2">
             <EmptyState
-              icon={ClipboardHeart}
+              icon={ClipboardCheck}
               title="No checkups yet"
               description="Ten gentle questions about how your relationship is doing — a few minutes, once in a while."
             />
